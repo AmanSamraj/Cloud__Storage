@@ -22,7 +22,7 @@ import UploadButton from './components/UploadButton'
 
 const rootContents = { folder: null, path: [{ id: null, name: 'My Drive' }], children: { folders: [], files: [] } }
 
-function Dashboard({ user }) {
+function Dashboard({ onLogout, user }) {
   const [activeItem, setActiveItem] = useState('My Drive')
   const [currentFolderId, setCurrentFolderId] = useState(null)
   const [contents, setContents] = useState(rootContents)
@@ -182,6 +182,7 @@ function Dashboard({ user }) {
             setActiveItem('Search')
             setSearchParams(p)
           }}
+          onLogout={onLogout}
           user={user}
         />
         <main className="dashboard-main px-5 pb-12 pt-7 sm:px-8 lg:px-10">
